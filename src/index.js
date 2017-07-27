@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import 'semantic-ui-css/semantic.min.css';
+
+
 import './index.css';
+import Home from './pages/Home';
 
-import App from './App';
+ReactDOM.render(<Home/>, document.getElementById('root'));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+if(module.hot){
+    module.hot.accept();
+}

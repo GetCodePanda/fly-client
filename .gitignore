@@ -1,5 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# author 
+_ref
+
 # dependencies
 /node_modules
 
@@ -8,6 +11,7 @@
 
 # production
 /build
+
 
 # misc
 .DS_Store
