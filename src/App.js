@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import 'semantic-ui-css/semantic.min.css';
-
-
-import FlyNav from './components/presentational/FlyNav';
-import Home from './pages/Home'
-
-
 class App extends Component {
   bookCar(){
       fetch('localhost:3030/booking' , {
@@ -23,7 +16,7 @@ class App extends Component {
     render(){
       return(
         <div>
-          <FlyNav />
+          <FlyNav/>
           <Home/>
         </div>
       )

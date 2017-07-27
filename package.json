@@ -3,11 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "feathers-authentication-client": "^0.3.3",
+    "feathers-client": "^2.3.0",
+    "feathers-hooks": "^2.0.2",
+    "feathers-rest": "^1.8.0",
+    "localstorage-memory": "^1.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
     "semantic-ui-css": "^2.2.11",
-    "semantic-ui-react": "^0.71.2"
+    "semantic-ui-react": "^0.71.2",
+    "superagent": "^3.5.2"
   },
   "scripts": {
     "start": "react-scripts start",

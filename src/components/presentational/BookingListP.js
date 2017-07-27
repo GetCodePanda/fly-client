@@ -3,6 +3,7 @@ import { List, Image } from 'semantic-ui-react';
 
 const BookingListP = (props) => {
     const booking = props.booking;
+    // console.log(booking);
     if(booking.length !== 0){
             const bookingList = booking.map((b)=>{
                 return (
@@ -31,7 +32,6 @@ const BookingListP = (props) => {
                         <List.Header as='a'>No items Found</List.Header>
                     </List.Content>
                 </List.Item> 
-            
             </List>
         )
     

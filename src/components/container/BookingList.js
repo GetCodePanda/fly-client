@@ -17,7 +17,7 @@ class BookingList extends Component{
             .then(res => res.json())
             .then(res => {
                 const booking =  res.data;
-                console.log(booking);
+                // console.log(booking);
                 return this.setState({
                     data:{
                         booking
