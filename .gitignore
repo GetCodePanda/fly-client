@@ -3,6 +3,10 @@
 # author 
 _ref
 
+# eject 
+/scripts
+/config
+
 # dependencies
 /node_modules
 

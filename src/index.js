@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
-
+import {AppContainer} from 'react-hot-loader';
 
 import './index.css';
 import Home from './pages/Home';
 
-ReactDOM.render(<Home/>, document.getElementById('root'));
+
+const render = (Component)=>{
+    ReactDOM.render(
+    <AppContainer>
+        <Component/>
+    </AppContainer>,
+    document.getElementById('root'));
+}
+
+render(Home);
+
 
 if(module.hot){
-    module.hot.accept();
+    module.hot.accept('./pages/Home' , ()=> render(Home));
 }
