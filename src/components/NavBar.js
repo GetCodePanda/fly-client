@@ -10,18 +10,18 @@ class NavBar extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu stackable>
-        <Menu.Item>
-            <img src="https://react.semantic-ui.com/logo.png" alt="" />
-        </Menu.Item>
-        <Menu.Item
-          name='features'
-          active={activeItem === 'features'}
-          onClick={this.handleItemClick}
-        >
-          Fly Tourister Booking
-        </Menu.Item>
-      </Menu>
+      <section>
+        <Menu stackable inverted className="fly-menu">
+          <Menu.Item
+            name='features'
+            active={activeItem === 'features'}
+            onClick={this.handleItemClick}
+          >
+            <img src="https://react.semantic-ui.com/logo.png" alt="" /> &nbsp;
+            Fly Tourister Booking
+          </Menu.Item>
+        </Menu>
+      </section>
     )
   }
 }

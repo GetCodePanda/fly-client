@@ -4,8 +4,34 @@ body {
   font-family: sans-serif;
 }
 
+.logo{
+    color: #767676 !important;
+    background: white !important;
+}
+
+.fly-menu{
+  border-radius:0 !important;
+  background-color: #00b5ad !important;
+}
 /*   AuthSection   */
 .tab {
   border:none !important;
 }
 
+.layout{
+  min-height:100vh !important;
+  background: #f7f7f7 !important;
+}
+
+.pusher{
+  max-width: 90vw ! important;
+}
+
+.fly-divider{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1.5px solid #00b5ad;
+    margin: 1em 0;
+    padding: 0; 
+}

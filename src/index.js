@@ -4,20 +4,19 @@ import 'semantic-ui-css/semantic.min.css';
 import {AppContainer} from 'react-hot-loader';
 
 import './index.css';
-import Home from './pages/Home';
+import FlyRouter from './routes/index';
 
 
-const render = (Component)=>{
+const render =(Component)=>{
     ReactDOM.render(
     <AppContainer>
         <Component/>
     </AppContainer>,
     document.getElementById('root'));
-}
+};
 
-render(Home);
-
+render(FlyRouter);
 
 if(module.hot){
-    module.hot.accept('./pages/Home' , ()=> render(Home));
+    module.hot.accept('./routes/index' , ()=> render(FlyRouter));
 }

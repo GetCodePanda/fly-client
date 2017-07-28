@@ -10,18 +10,18 @@ class LogIn extends Component {
     render(){
         return(
             <Form>
-                <Form.Field>
-                    <label>First Name</label>
-                    <input placeholder='First Name' />
+                <Form.Field required>
+                    <label>Email</label>
+                    <input placeholder='Email' />
                 </Form.Field>
-                <Form.Field>
-                    <label>Last Name</label>
-                    <input placeholder='Last Name' />
+                <Form.Field required>
+                    <label>Password</label>
+                    <input placeholder='*********' />
                 </Form.Field>
                 <Form.Field>
                     <Checkbox label='Remember Me' />
                 </Form.Field>
-                <Button type='submit'>Submit</Button>
+                <Button color="teal" type='submit'>Submit</Button>
             </Form>
         )
     }
