@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import {Tab} from 'semantic-ui-react';
 
 import SignUp from './SignUp';
@@ -16,8 +16,14 @@ const panes = [
   
 ]
 
-const AuthSection = () => (
-    <Tab menu={{ color:'teal',secondary: true, pointing: true }} panes={panes} />
-)
+
+const AuthSection = () =>(
+      <Tab 
+        menu={{ color:'purple',secondary: true, pointing: true }} defaultActiveIndex="0"
+        panes={panes}
+      />
+  )
+  
+
 
 export default AuthSection;

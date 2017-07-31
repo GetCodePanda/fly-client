@@ -1,8 +1,8 @@
 import React from 'react'
 import { Image, List } from 'semantic-ui-react'
+import {NavLink} from 'react-router-dom';
 
 const TopNav = () => (
-  
   <div>
       <List horizontal relaxed='very'  className='fly-topnav' floated='right'>
         <List.Item>
@@ -17,8 +17,10 @@ const TopNav = () => (
           <List.Content>Notification</List.Content>
         </List.Item>
         <List.Item>
-          <List.Icon name='sign out' size='large'  />
-          <List.Content>Logout</List.Content>
+          <NavLink to="/">
+            <List.Icon name='sign out' size='large'  />
+            <List.Content>Logout</List.Content>
+          </NavLink>
         </List.Item>
       </List>
   </div>

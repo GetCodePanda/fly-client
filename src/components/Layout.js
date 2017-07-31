@@ -9,7 +9,7 @@ class Layout extends Component {
     return (
       <div>
         <Sidebar.Pushable as={Segment} className="layout">
-          <Sidebar  color="teal" as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
+          <Sidebar  color="purple" as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
             <NavLink to="/user/dashboard">
               <Menu.Item name='rocket' className="logo">
                 <Icon name='rocket' />

@@ -1,3 +1,6 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +14,7 @@ body {
 
 .fly-menu{
   border-radius:0 !important;
-  background-color: #00b5ad !important;
+  background-color: #a333c8 !important;
 }
 /*   AuthSection   */
 .tab {
@@ -31,7 +34,20 @@ body {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1.5px solid #00b5ad;
+    border-top: 1.5px solid #a333c8;
     margin: 1em 0;
     padding: 0; 
+}
+
+.home{
+  min-height: 100vh !important;
+}
+
+.home-container{
+  min-height: 90vh !important;
+}
+
+.slider{
+  margin-top:10px !important;
+  padding:3px 10px !important;
 }
