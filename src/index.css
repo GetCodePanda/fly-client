@@ -51,3 +51,26 @@ body {
   margin-top:10px !important;
   padding:3px 10px !important;
 }
+
+.testimonial-header{
+  font-family: 'Roboto', sans-serif !important;
+}
+
+
+.testimonial-content{
+  color:#bfbbbb;
+  font-size: 24px;
+  font-family: 'Sail', cursive;
+  font-weight: lighter;
+  margin-top:10px;
+  padding:10px;
+}
+
+.testimonial-username{
+  font-family: 'Sail', cursive !important;
+  font-weight: lighter !important;
+}
+
+.slick-active > button{
+  color:purple !important;
+}
