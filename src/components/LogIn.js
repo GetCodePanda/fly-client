@@ -7,7 +7,7 @@ import {loginUser} from '../api/User';
 class LogIn extends Component {
     constructor(props){
         super(props);
-        this.state = {email:'',password:''};
+        this.state = {email:'',password:'',};
         this.authUser = this.authUser.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
     }
@@ -15,16 +15,15 @@ class LogIn extends Component {
     authUser(e){
         loginUser(this.state.email, this.state.password)
         .then(response => {
-            console.log('Authenticated!', response);
+            console.log('Authenticated!', response.accessToken);
             return flyClientApp.passport.verifyJWT(response.accessToken);
         })
         .then(payload => {
             return flyClientApp.service('users').get(payload.userId);
         })
         .then(user => {
-            flyClientApp.set('user', user);
-            console.log('User', flyClientApp.get('user'));
-            window.location.assign('http://localhost:3000/user/dashboard')
+           localStorage.setItem('userID', user.id)
+           window.location.assign('/user/dashboard');
         })
         .catch(function(error){
             console.error('Error authenticating!', error);

@@ -21,43 +21,38 @@ class Testimonial extends Component {
                     <Slider {...settings} className="slider">
                         <div>   
                             <p>
-                                <h5>
-                                    <Icon name='quote left' size="big" color="yellow"/>
-                                    <span className="testimonial-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur hic iusto natus fugit aut, minima numquam iure reprehenderit suscipit molestias, aperiam praesentium. Necessitatibus maiores, ipsum enim quisquam reprehenderit. Nulla, doloribus! 
-                                        
-                                    </span><Icon  name='quote right' size="big" color="yellow"/>
-                                </h5>
+                                <Icon name='quote left' size="big" color="yellow"/>
+                                <span className="testimonial-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur hic iusto natus fugit aut, minima numquam iure reprehenderit suscipit molestias, aperiam praesentium. Necessitatibus maiores, ipsum enim quisquam reprehenderit. Nulla, doloribus!    
+                                </span>
+                                <Icon  name='quote right' size="big" color="yellow"/>
                             </p>
                             <Image src='https://react.semantic-ui.com/assets/images/avatar/large/jenny.jpg' size='tiny' shape='circular' centered/>
                             <Header size="large" textAlign="center" color="purple" className='testimonial-username'>username</Header>
                         </div>
                         <div>   
                             <p>
-                                <h5>
-                                    <Icon name='quote left' size="big" color="yellow"/>
-                                    <span className="testimonial-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur hic iusto natus fugit aut, minima numquam iure reprehenderit suscipit molestias, aperiam praesentium. Necessitatibus maiores, ipsum enim quisquam reprehenderit. Nulla, doloribus! 
-                                        
-                                    </span><Icon  name='quote right' size="big" color="yellow"/>
-                                </h5>
+                                <Icon name='quote left' size="big" color="yellow"/>
+                                <span className="testimonial-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur hic iusto natus fugit aut, minima numquam iure reprehenderit suscipit molestias, aperiam praesentium. Necessitatibus maiores, ipsum enim quisquam reprehenderit. Nulla, doloribus!    
+                                </span>
+                                <Icon  name='quote right' size="big" color="yellow"/>
                             </p>
                             <Image src='https://react.semantic-ui.com/assets/images/avatar/large/jenny.jpg' size='tiny' shape='circular' centered/>
                             <Header size="large" textAlign="center" color="purple" className='testimonial-username'>username</Header>
                         </div>
                         <div>   
                             <p>
-                                <h5>
-                                    <Icon name='quote left' size="big" color="yellow"/>
-                                    <span className="testimonial-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur hic iusto natus fugit aut, minima numquam iure reprehenderit suscipit molestias, aperiam praesentium. Necessitatibus maiores, ipsum enim quisquam reprehenderit. Nulla, doloribus! 
-                                        
-                                    </span><Icon  name='quote right' size="big" color="yellow"/>
-                                </h5>
+                                <Icon name='quote left' size="big" color="yellow"/>
+                                <span className="testimonial-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur hic iusto natus fugit aut, minima numquam iure reprehenderit suscipit molestias, aperiam praesentium. Necessitatibus maiores, ipsum enim quisquam reprehenderit. Nulla, doloribus!    
+                                </span>
+                                <Icon  name='quote right' size="big" color="yellow"/>
                             </p>
                             <Image src='https://react.semantic-ui.com/assets/images/avatar/large/jenny.jpg' size='tiny' shape='circular' centered/>
                             <Header size="large" textAlign="center" color="purple" className='testimonial-username'>username</Header>
                         </div>
+                      
                        
                     </Slider>
                 </Grid.Column>

@@ -2,6 +2,14 @@ import React from 'react'
 import { Image, List } from 'semantic-ui-react'
 import {NavLink} from 'react-router-dom';
 
+import flyClientApp from '../api/index';
+
+
+const logout = ()=>{
+  localStorage.removeItem('userID')
+  flyClientApp.logout()
+}
+
 const TopNav = () => (
   <div>
       <List horizontal relaxed='very'  className='fly-topnav' floated='right'>
@@ -17,7 +25,7 @@ const TopNav = () => (
           <List.Content>Notification</List.Content>
         </List.Item>
         <List.Item>
-          <NavLink to="/">
+          <NavLink to="/" onClick={logout}>
             <List.Icon name='sign out' size='large'  />
             <List.Content>Logout</List.Content>
           </NavLink>
