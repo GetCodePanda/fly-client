@@ -22,6 +22,7 @@ body {
 }
 
 .layout{
+  max-width:100vw !important;
   min-height:100vh !important;
   background: #f7f7f7 !important;
 }
@@ -30,14 +31,14 @@ body {
   max-width: 90vw ! important;
 }
 
-.fly-divider{
+/* .fly-divider{
     display: block;
     height: 1px;
     border: 0;
     border-top: 1.5px solid #a333c8;
-    margin: 1em 0;
+    margin: 2em 0;
     padding: 0; 
-}
+} */
 
 .home{
   min-height: 100vh !important;
@@ -74,3 +75,52 @@ body {
 .slick-active > button{
   color:purple !important;
 }
+
+.ui.basic.segment {
+    padding:0 !important;
+}
+
+.top-nav{
+  color:#c1bfbf !important;
+  display:block;
+  background-color: white !important;
+  padding:15px 20px !important;
+  width:100%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.top-nav-logout{
+  color:#c1bfbf !important;
+  display:inline;
+}
+
+
+.fly-topnav{
+  margin-right: 20px !important;
+}
+
+.username-topnav{
+  color:#8E2177 !important;
+}
+
+.content-wrapper{
+  padding: 30px 2px !important;
+}
+
+i.sign.out.large.icon , i.alarm.outline.large.icon{
+  color:#c1bfbf !important;
+}
+
+i.sign.out.large.icon:hover , i.alarm.outline.large.icon:hover{
+  color:#8E2177 !important;
+}
+
+.fly-topnav > .item:hover ,  .fly-topnav > .item:hover >i {
+   color:#8E2177 !important;
+}
+
+.content-wrapper{
+  padding:10px 30px !important;
+}
+

@@ -11,12 +11,12 @@ const logout = ()=>{
 }
 
 const TopNav = () => (
-  <div>
+  <div className="top-nav">
       <List horizontal relaxed='very'  className='fly-topnav' floated='right'>
         <List.Item>
           <Image avatar src='https://react.semantic-ui.com/assets/images/avatar/small/daniel.jpg' />
           <List.Content>
-            <List.Header>Daniel Louise</List.Header>
+            <List.Header className='username-topnav' >Daniel Louise</List.Header>
             Admin
           </List.Content>
         </List.Item>
@@ -26,8 +26,8 @@ const TopNav = () => (
         </List.Item>
         <List.Item>
           <NavLink to="/" onClick={logout}>
-            <List.Icon name='sign out' size='large'  />
-            <List.Content>Logout</List.Content>
+            <List.Icon name='sign out' size='large'/>
+            <List.Content className='top-nav-logout'>Logout</List.Content>
           </NavLink>
         </List.Item>
       </List>

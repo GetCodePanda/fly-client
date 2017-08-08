@@ -9,7 +9,4 @@ const flyClienApp = feathers()
   .configure(hooks())
   .configure(rest(host).fetch(fetch))
   .configure(auth({ storage: window.localStorage}));
-
-
-
 export default flyClienApp;

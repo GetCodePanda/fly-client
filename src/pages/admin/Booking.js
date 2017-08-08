@@ -1,11 +1,14 @@
 import React from 'react';
+
+
 import Layout from '../../components/Layout';
+import TopNav from '../../components/TopNav';
+import BookingContent from '../../components/BookingContent';
 
 const Booking = ()=>(
     <Layout>
-        <h1>
-            Booking contents..
-        </h1>
+        <TopNav/>
+        <BookingContent/>
     </Layout>
 );
 

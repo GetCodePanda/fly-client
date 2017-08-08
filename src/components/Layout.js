@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Sidebar, Segment, Menu, Icon } from 'semantic-ui-react'
+import { Sidebar, Segment, Menu, Container, Icon } from 'semantic-ui-react'
 import {NavLink} from 'react-router-dom';
 
 class Layout extends Component {
@@ -68,7 +68,11 @@ class Layout extends Component {
           </Sidebar >
           <Sidebar.Pusher>
             <Segment basic>
-                {this.props.children}
+                <Container fluid>
+                  <section className="admin-panel-content">
+                    {this.props.children}
+                  </section>
+                </Container>
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>

@@ -23,7 +23,7 @@ class LogIn extends Component {
         })
         .then(user => {
            localStorage.setItem('userID', user.id)
-           window.location.assign('/user/dashboard');
+           window.location.assign('/user/dashboard')
         })
         .catch(function(error){
             console.error('Error authenticating!', error);
