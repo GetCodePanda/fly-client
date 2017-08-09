@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 
 
 const users = flyClientApp.service('users');
-const booking = flyClientApp.service('booking');
 
 
 export const createNewUser = (userObj) => {
@@ -30,13 +29,4 @@ export const getUsers = (option) => {
 }
 
 
-export const getBooking = (option)=>{
-     return fetch("http://localhost:3030/booking",{
-            method:'GET',
-            headers:{
-                "Authorization":localStorage.getItem('feathers-jwt')
-            }
-        }).then((r)=>{
-                return booking.find(option)
-        })
-}
+

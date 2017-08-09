@@ -16,8 +16,8 @@ const TopNav = () => (
         <List.Item>
           <Image avatar src='https://react.semantic-ui.com/assets/images/avatar/small/daniel.jpg' />
           <List.Content>
-            <List.Header className='username-topnav' >Daniel Louise</List.Header>
-            Admin
+            <List.Header className='username-topnav' >Admin</List.Header>
+            
           </List.Content>
         </List.Item>
         <List.Item>

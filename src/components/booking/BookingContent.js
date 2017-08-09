@@ -1,8 +1,10 @@
 import React , {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import {Card ,Header, Button} from 'semantic-ui-react';
-import BookingCard from './display/BookingCard';
 
-import {getBooking} from './../api/User';
+
+import BookingCard from './../display/BookingCard';
+import {getBooking} from './../../api/Booking';
 
 
 class BookingContent extends Component{
@@ -27,6 +29,7 @@ class BookingContent extends Component{
                     }
           
             }).then(res=>{
+                console.log(res.data)
                 return this.setState({
                     data:{
                         booking:res.data,
@@ -51,10 +54,12 @@ class BookingContent extends Component{
                  
                     <Button icon='archive' color='purple' content='Delete' labelPosition='left' floated="left"/>
                     <Button icon='download'  color='purple' content='Export' labelPosition='left' floated="left"/>
-                    <Button content='Create New' color='purple' icon='plus' floated="right" labelPosition='left'/>
+                    <NavLink to="/user/booking/new">
+                        <Button content='Create New' color='purple' icon='plus' floated="right" labelPosition='left'/>
+                    </NavLink>
                     <br/><br/><br/><br/><br/><br/>
                   
-                    <Card.Group itemsPerRow={3}>
+                    <Card.Group itemsPerRow={2}>
                         <BookingCard data={this.state.data.booking}/>
                     </Card.Group>
                     <br/><br/><br/><br/><br/><br/>

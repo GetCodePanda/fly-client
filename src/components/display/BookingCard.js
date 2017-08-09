@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import {Card,Button} from 'semantic-ui-react';
 
 
@@ -14,7 +15,6 @@ const BookingCard = (props) => {
                             Customer Name
                         </Card.Header>
                         <Card.Meta>
-                            
                             {d.bookingID}
                         </Card.Meta>
                         <Card.Description>
@@ -33,13 +33,14 @@ const BookingCard = (props) => {
                             <div>
                                 <strong>Booking Status:</strong> {d.bookingStatus}
                             </div>
-                            
                         </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <Button icon='archive' color='purple' content='View More' labelPosition='left' />
-                           
+                            <NavLink to={"/user/booking/view/q?id="+d.bookingID}>
+                             <Button icon='archive' color='purple' content='View More' labelPosition='left' />
+                            </NavLink>
+                            
                         </div>
                     </Card.Content>
                 </Card>

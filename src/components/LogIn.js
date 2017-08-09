@@ -15,7 +15,6 @@ class LogIn extends Component {
     authUser(e){
         loginUser(this.state.email, this.state.password)
         .then(response => {
-            console.log('Authenticated!', response.accessToken);
             return flyClientApp.passport.verifyJWT(response.accessToken);
         })
         .then(payload => {
@@ -23,7 +22,7 @@ class LogIn extends Component {
         })
         .then(user => {
            localStorage.setItem('userID', user.id)
-           window.location.assign('/user/dashboard')
+           window.location.assign('/user/booking')
         })
         .catch(function(error){
             console.error('Error authenticating!', error);
