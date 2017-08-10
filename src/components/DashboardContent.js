@@ -1,7 +1,7 @@
 import React  , {Component} from 'react';
 import {Card,Grid, Header, Container, Icon} from 'semantic-ui-react';
 import {NavLink} from 'react-router-dom';
-import Nav from './Nav';
+
 
 
 
@@ -140,7 +140,6 @@ class Content extends Component{
 
 const DashboardContent = ()=>(
     <section >
-        <Nav/>
         <Container >
             <Content />
         </Container>

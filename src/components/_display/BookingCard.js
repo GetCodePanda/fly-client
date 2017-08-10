@@ -37,7 +37,7 @@ const BookingCard = (props) => {
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <NavLink to={"/user/booking/view/q?id="+d.bookingID}>
+                            <NavLink to={"/user/booking/view/q?id="+d.id}>
                              <Button icon='archive' color='purple' content='View More' labelPosition='left' />
                             </NavLink>
                             

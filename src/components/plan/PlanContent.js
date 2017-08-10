@@ -1,24 +1,22 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Card ,Header, Button} from 'semantic-ui-react';
+import {Header, Button} from 'semantic-ui-react';
 
-import {getBooking} from './../../api/Booking';
-
-import BookingCard from './../_display/BookingCard';
+import {getPlan} from './../../api/Plan';
 
 
-class BookingContent extends Component{
+class PlanContent extends Component{
     constructor(props){
         super(props);
         this.state={
             data:{
-                booking:[]
+                plans:[]
             }
         }
     }
 
-    setBookingData(){
-        return getBooking({
+    setPlanData(){
+        return getPlan({
                      paginate: {
                         default: 2,
                         max: 4
@@ -28,41 +26,35 @@ class BookingContent extends Component{
                     console.log(res.data)
                     return this.setState({
                         data:{
-                            booking:res.data
+                            plans:res.data
                         }
                     }) 
                 });
     }
 
     componentWillMount(){
-        return this.setBookingData();
+        return this.setPlanData();
     }
 
     render(){
         return(
             <div className="content-wrapper">
                 <Header as='h2' dividing>
-                     Booking
+                     Plan
                 </Header>
 
                 <div className="sub-content-wrapper">
                  
                     <Button icon='archive' color='purple' content='Delete' labelPosition='left' floated="left"/>
                     <Button icon='download'  color='purple' content='Export' labelPosition='left' floated="left"/>
-                    <NavLink to="/user/booking/new">
+                    <NavLink to="/user/plan/new">
                         <Button content='Create New' color='purple' icon='plus' floated="right" labelPosition='left'/>
                     </NavLink>
-                    <br/><br/><br/><br/><br/><br/>
-                  
-                    <Card.Group itemsPerRow={2}>
-                        {console.log(this.state.data.booking)}
-                        <BookingCard data={this.state.data.booking}/>
-                    </Card.Group>
-                    <br/><br/><br/><br/><br/><br/>
+                    
                 </div>
             </div>
         )
     }
 }
 
-export default BookingContent;
+export default PlanContent;

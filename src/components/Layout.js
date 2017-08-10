@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Sidebar, Segment, Menu, Container, Icon } from 'semantic-ui-react'
 import {NavLink} from 'react-router-dom';
 
+
+import TopNav from './TopNav';
+
 class Layout extends Component {
   state = { visible: true }
   render() {
     const { visible } = this.state
     return (
       <div>
+        
         <Sidebar.Pushable as={Segment} className="layout">
           <Sidebar  color="purple" as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
             <NavLink to="/user/dashboard">
@@ -29,10 +33,10 @@ class Layout extends Component {
                 Booking
               </Menu.Item>
             </NavLink>
-            <NavLink to="/user/employee">
+            <NavLink to="/user/driver">
               <Menu.Item name='user circle outline'>
                   <Icon name='user circle outline' />
-                  Employess
+                  Driver
               </Menu.Item>
             </NavLink>
             <NavLink to="/user/customers">
@@ -53,10 +57,16 @@ class Layout extends Component {
                 Vendor
               </Menu.Item>
             </NavLink>
-           <NavLink to="/user/taxAndPlan">
+           <NavLink to="/user/plan">
               <Menu.Item name='newspaper'>
                 <Icon name='newspaper' />
-                Tax & Plan
+                 Plan
+              </Menu.Item>
+           </NavLink>
+           <NavLink to="/user/tax">
+              <Menu.Item name='newspaper'>
+                <Icon name='calculator' />
+                 Tax
               </Menu.Item>
            </NavLink>
             <NavLink to="/user/report">
@@ -69,7 +79,9 @@ class Layout extends Component {
           <Sidebar.Pusher>
             <Segment basic>
                 <Container fluid>
+                  
                   <section className="admin-panel-content">
+                    <TopNav/>
                     {this.props.children}
                   </section>
                 </Container>

@@ -9,7 +9,7 @@ class ViewSingleBookingContent extends Component{
         super(props);
         this.state={
             data:{
-                bookingId:window.location.search.substr(4),
+                id:window.location.search.substr(4),
                 singleBooking:[]
             }
         }
@@ -21,9 +21,9 @@ class ViewSingleBookingContent extends Component{
 
    setBookingSingleData(){
 
-    return getSingleBooking(this.state.data.bookingId).
+    return getSingleBooking(this.state.data.id).
                 then((data)=>{
-                    const singleData = data.data[0];
+                    const singleData = data;
                     return this.setState({
                         data:{
                             singleBooking:singleData
@@ -48,6 +48,7 @@ class ViewSingleBookingContent extends Component{
                     <NavLink to="/user/booking">
                         <Button content='Back' color='purple' icon='reply' floated="right" labelPosition='left'/>
                         <Button content='Edit' color='purple' icon='write' floated="right" labelPosition='left'/>
+                        <Button content='Delete' color='purple' icon='trash' floated="right" labelPosition='left'/>
                     </NavLink>
                     <br/><br/>
                     <hr/>

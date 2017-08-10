@@ -81,7 +81,7 @@ body {
 }
 
 .top-nav{
-  color:#c1bfbf !important;
+  color:#8E2177 !important;
   display:block;
   background-color: white !important;
   padding:15px 20px !important;
@@ -91,7 +91,7 @@ body {
 }
 
 .top-nav-logout{
-  color:#c1bfbf !important;
+  color:#8E2177 !important;
   display:inline;
 }
 
@@ -109,7 +109,7 @@ body {
 }
 
 i.sign.out.large.icon , i.alarm.outline.large.icon{
-  color:#c1bfbf !important;
+  color:#8E2177 !important;
 }
 
 i.sign.out.large.icon:hover , i.alarm.outline.large.icon:hover{

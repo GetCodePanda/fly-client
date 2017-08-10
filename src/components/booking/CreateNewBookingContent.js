@@ -2,7 +2,7 @@ import React  , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import {Header, Button , Form , Container} from 'semantic-ui-react';
 
-import {createNewUser} from './../../api/Booking';
+import {createNewBooking} from './../../api/Booking';
 
 class CreateNewBookingContent extends  Component{
     constructor(){
@@ -29,7 +29,7 @@ class CreateNewBookingContent extends  Component{
                 vehicleName:""
         }
         this.onInputChange = this.onInputChange.bind(this)
-        this.createNewBooking = this.createNewBooking.bind(this)
+        this.createBooking = this.createBooking.bind(this)
     }
 
     onInputChange(e){
@@ -38,11 +38,31 @@ class CreateNewBookingContent extends  Component{
         });
     }
 
-    createNewBooking(e){
+    createBooking(e){
         e.preventDefault();
-        createNewUser(this.state).then(res=>{
+        createNewBooking(this.state).then(res=>{
             alert("user created successfully");
             console.log(res);
+            this.setState({
+                customerName:'',
+                pickUpLocation:"",
+                dropLocation:"",
+                fromDate:"",
+                toDate:"",
+                startingKm:"",
+                endingKm:"",
+                totalKm:"",
+                chargePerKm:"",
+                driverCharge:"",
+                extraCharge:"",
+                extraChargeDesc:"",
+                totalCharge:"",
+                paymentType:"",
+                accountNo:"",
+                paymentStatus:"",
+                driverName:"",
+                vehicleName:""
+            })
         });
         console.log(this.state)
     }
@@ -62,7 +82,7 @@ class CreateNewBookingContent extends  Component{
                 </div>
                 <br/>
                 <Container>
-                    <Form onSubmit={this.createNewBooking}>
+                    <Form onSubmit={this.createBooking}>
                         <Form.Group widths='equal'>
                             <Form.Input 
                                 label='Customer Name' 
