@@ -1,11 +1,11 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Table , Header, Button} from 'semantic-ui-react';
+import {Card, Header, Button} from 'semantic-ui-react';
 
 
 import {getCustomer} from './../../api/Customer';
 
-import CustomerTableBody from './../_display/CustomerTableBody';
+import CustomerCard from './../_display/CustomerCard';
 
 
 class CustomerContent extends Component{
@@ -55,21 +55,10 @@ class CustomerContent extends Component{
                 </div>
 
                 <br/><br/><br/><br/>
-                <Table color="purple" size='large' unstackable celled>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>Name</Table.HeaderCell>
-                            <Table.HeaderCell>Mobile Number</Table.HeaderCell>
-                            <Table.HeaderCell>Email</Table.HeaderCell>
-                            <Table.HeaderCell>Address</Table.HeaderCell>
-                            <Table.HeaderCell>status</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-
-                    <Table.Body>
-                        <CustomerTableBody data={this.state.data.customers}/>                  
-                    </Table.Body>
-                </Table>
+                    <Card.Group itemsPerRow={2}>
+                        <CustomerCard data={this.state.data.customers}/>                  
+                    </Card.Group>
+                <br/><br/><br/><br/>
             </div>
         )
     }

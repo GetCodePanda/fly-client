@@ -1,8 +1,11 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Header, Button} from 'semantic-ui-react';
+import {Card , Header, Button} from 'semantic-ui-react';
 
 import {getDriver} from './../../api/Driver';
+
+
+import DriverCard from './../_display/DriverCard';
 
 
 class DriverContent extends Component{
@@ -52,6 +55,11 @@ class DriverContent extends Component{
                     </NavLink>
                     
                 </div>
+                <br/><br/><br/><br/>
+                    <Card.Group itemsPerRow={2}>
+                        <DriverCard data={this.state.data.drivers}/>                  
+                    </Card.Group>
+                <br/><br/><br/><br/>
             </div>
         )
     }

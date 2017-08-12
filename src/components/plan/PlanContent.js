@@ -1,8 +1,9 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Header, Button} from 'semantic-ui-react';
+import { Card , Header, Button} from 'semantic-ui-react';
 
 import {getPlan} from './../../api/Plan';
+import PlanCard from './../_display/PlanCard';
 
 
 class PlanContent extends Component{
@@ -22,7 +23,7 @@ class PlanContent extends Component{
                         max: 4
                     }
                 })
-                .then(res=>{
+                .then(res =>{
                     console.log(res.data)
                     return this.setState({
                         data:{
@@ -42,16 +43,18 @@ class PlanContent extends Component{
                 <Header as='h2' dividing>
                      Plan
                 </Header>
-
-                <div className="sub-content-wrapper">
-                 
+                <div className="sub-content-wrapper">            
                     <Button icon='archive' color='purple' content='Delete' labelPosition='left' floated="left"/>
                     <Button icon='download'  color='purple' content='Export' labelPosition='left' floated="left"/>
                     <NavLink to="/user/plan/new">
                         <Button content='Create New' color='purple' icon='plus' floated="right" labelPosition='left'/>
                     </NavLink>
-                    
                 </div>
+                <br/><br/><br/><br/>
+                    <Card.Group itemsPerRow={2}>
+                        <PlanCard data={this.state.data.plans}/>                  
+                    </Card.Group>
+                <br/><br/><br/><br/>
             </div>
         )
     }

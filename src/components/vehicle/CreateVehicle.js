@@ -7,7 +7,6 @@ import {createNewVehicle} from './../../api/Vehicle';
 class CreateVehicle extends  Component{
     constructor(){
         super();
-    
         this.state = {
                 name:'',
                 type:"",
@@ -46,7 +45,7 @@ class CreateVehicle extends  Component{
         createNewVehicle(this.state).then(res=>{
             alert("user created successfully");
             this.setState({
-                  name:'',
+                name:'',
                 type:"",
                 model:"",
                 regNo:"",
@@ -97,7 +96,6 @@ class CreateVehicle extends  Component{
                                 name='name'
                                 onChange={this.onInputChange}
                                 value={this.state.name}
-
                             />
                         </Form.Group>
 

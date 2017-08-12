@@ -1,8 +1,9 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Header, Button} from 'semantic-ui-react';
+import {Card, Header, Button} from 'semantic-ui-react';
 
 import {getTax} from './../../api/Tax';
+import TaxCard from './../_display/TaxCard';
 
 
 class TaxContent extends Component{
@@ -44,14 +45,17 @@ class TaxContent extends Component{
                 </Header>
 
                 <div className="sub-content-wrapper">
-                 
                     <Button icon='archive' color='purple' content='Delete' labelPosition='left' floated="left"/>
                     <Button icon='download'  color='purple' content='Export' labelPosition='left' floated="left"/>
                     <NavLink to="/user/tax/new">
                         <Button content='Create New' color='purple' icon='plus' floated="right" labelPosition='left'/>
                     </NavLink>
-                    
                 </div>
+                <br/><br/><br/><br/>
+                    <Card.Group itemsPerRow={2}>
+                        <TaxCard data={this.state.data.taxs}/>                  
+                    </Card.Group>
+                <br/><br/><br/><br/>
             </div>
         )
     }

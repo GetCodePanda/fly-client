@@ -1,44 +1,37 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import {Card,Button} from 'semantic-ui-react';
+import {Card , Button} from 'semantic-ui-react';
 
-
-
-const BookingCard = (props) => {
+const VehicleCard = (props) =>{
     const cardData = props.data;
+
     if(cardData.length !== 0){
-        const bookingCard = cardData.map((d , i)=>{
+        const vehicleCard = cardData.map((v, i)=>{
             return (
                 <Card color='purple' key={i}>
                       <Card.Content>
                         <Card.Header>
-                            Customer Name
+                            {v.name}
                         </Card.Header>
                         <hr/>
-                        <Card.Meta>
-                            {d.bookingID}
-                        </Card.Meta>
                         <Card.Description>
                             <div>
-                                <strong>Pick Up Location:</strong> {d.pickUpLocation} 
+                                <strong>Register Number:</strong> {v.regNo} 
+                            </div> 
+                            <div>
+                                <strong>Car Model:</strong> {v.model} 
+                            </div> 
+                            <div>
+                                <strong>Car Color:</strong> {v.color} 
                             </div>
                             <div>
-                                <strong>Drop Location:</strong> {d.dropLocation}
-                            </div>
-                            <div>
-                                <strong>From Date:</strong> {d.fromDate}
-                            </div>
-                            <div>
-                                <strong>To Date:</strong> {d.toDate}
-                            </div>
-                            <div>
-                                <strong>Booking Status:</strong> {d.bookingStatus}
-                            </div>
+                                <strong>Car status:</strong> {v.status} 
+                            </div> 
                         </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <NavLink to={"/user/booking/view/q?id="+d.id}>
+                            <NavLink to={"/user/Vehicle/view/q?id="+v.id}>
                              <Button icon='archive' color='purple' content='View More' labelPosition='left' />
                             </NavLink>
                             
@@ -50,7 +43,7 @@ const BookingCard = (props) => {
         return (
 
             <div>
-                {bookingCard}
+                {vehicleCard}
             </div>
         )
     }
@@ -60,7 +53,9 @@ const BookingCard = (props) => {
                 No data
              </Card>
         )
-    
-}
+};
 
-export default BookingCard;
+
+
+
+export default VehicleCard;

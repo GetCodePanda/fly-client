@@ -1,8 +1,10 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Header, Button} from 'semantic-ui-react';
+import {Card,Header,Button} from 'semantic-ui-react';
 
 import {getVendor} from './../../api/Vendor';
+
+import VendorCard from './../_display/VendorCard';
 
 
 class VendorContent extends Component{
@@ -52,6 +54,11 @@ class VendorContent extends Component{
                     </NavLink>
                     
                 </div>
+                <br/><br/><br/><br/>
+                    <Card.Group itemsPerRow={2}>
+                        <VendorCard data={this.state.data.vendors}/>                  
+                    </Card.Group>
+                <br/><br/><br/><br/>
             </div>
         )
     }
