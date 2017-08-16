@@ -1,10 +1,8 @@
 import React , {Component} from 'react';
-import {NavLink} from 'react-router-dom';
-import {Card,Header,Button} from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
+import { Card,Header,Button } from 'semantic-ui-react';
 
-import {getVehicle} from './../../api/Vehicle';
-
-
+import { getVehicle } from './../../api/Vehicle';
 import VehicleCard from './../_display/VehicleCard';
 
 

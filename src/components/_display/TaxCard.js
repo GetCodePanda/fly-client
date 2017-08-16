@@ -19,10 +19,10 @@ const TaxCard = (props) =>{
                         <Card.Description>
                             
                             <div>
-                                <strong>Tax Charge:</strong>  {t.taxValue} 
+                                <strong>Tax Charge:</strong>{t.taxValue} % 
                             </div>
                             <div>
-                                <strong>Tax Charge:</strong>  {t.status} 
+                                <strong>Tax status:</strong>  {t.status} 
                             </div>
                         </Card.Description>
                     </Card.Content>

@@ -9,16 +9,24 @@ import {
 
 import Home from '../pages/Home'
 
+// Booking Module
 import Booking from '../pages/admin/booking/Booking'
 import CreateNewBooking from 
 '../pages/admin/booking/CreateNewBooking';
 import ViewSingleBooking from 
 '../pages/admin/booking/ViewSingleBooking';
+import EditBooking from 
+'../pages/admin/booking/EditBooking';
 
 
+// Customer Module
 import Customers from '../pages/admin/customer/Customers'
 import CreateNewCustomer from 
 '../pages/admin/customer/CreateNewCustomer';
+import ViewSingleCustomer from 
+'../pages/admin/customer/ViewSingleCustomer';
+
+
 
 import Driver from '../pages/admin/driver/Driver'
 import CreateNewDriver from '../pages/admin/driver/CreateNewDriver'
@@ -46,23 +54,29 @@ import Dashboard from '../pages/admin/Dashboard'
 const FlyRouter = ()=>(
     <Router>
         <div>
+            {/* DashBoard */}
             <Route exact path="/" component={Home}/>
             <Route exact path="/user/dashboard" component={Dashboard} />
 
+            {/* Booking */}
             <Route exact path="/user/booking" component={Booking} />
             <Route exact path="/user/booking/new" component={CreateNewBooking} />
             <Route exact path="/user/booking/view/:id" component={ViewSingleBooking} />
-           
+            <Route exact path="/user/booking/edit/:id" component={EditBooking} />
+
+           {/* Driver */}
             <Route exact path="/user/driver" component={Driver} />
             <Route exact path="/user/driver/new" component={CreateNewDriver} />
             
+            {/* Customer */}
             <Route exact path="/user/customers" component={Customers} />
             <Route exact path="/user/customer/new" component={CreateNewCustomer} />
+            <Route exact path="/user/customer/view/:id" component={ViewSingleCustomer} />
 
             <Route exact path="/user/plan" component={Plan} />
             <Route exact path="/user/plan/new" component={CreateNewPlan} />
 
-             <Route exact path="/user/tax" component={Tax} />
+            <Route exact path="/user/tax" component={Tax} />
             <Route exact path="/user/tax/new" component={CreateNewTax} />
 
             <Route exact path="/user/vehicle" component={Vehicle} />

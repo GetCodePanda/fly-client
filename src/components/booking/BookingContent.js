@@ -34,7 +34,7 @@ class BookingContent extends Component{
                 });
     }
 
-    componentWillMount(){
+    componentDidMount(){
         return this.setBookingData();
     }
 

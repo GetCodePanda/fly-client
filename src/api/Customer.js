@@ -33,3 +33,15 @@ export const getCustomer = (option)=>{
                 return customer.find(option)
         })
 }
+
+export const getSingleCustomer = (id)=>{
+  return fetch("http://localhost:3030/booking/",{
+          method:'GET',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              console.log(r);
+              return customer.get(id);
+      })
+}
