@@ -210,9 +210,7 @@ class CreateNewBookingContent extends  Component{
                                 value={this.state.paymentType}
                             />
                         </Form.Group>
-                       
-                       
-                        
+                                                
                         <Button 
                             color="purple" 
                             content='Create new Booking' 

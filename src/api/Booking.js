@@ -46,13 +46,25 @@ export const getSingleBooking = (id)=>{
         })
 }
 
-export const editSingleBooking = (id) =>{
-    return fetch("http://localhost:3030/booking/",{
+export const editSingleBooking = (id, option) =>{
+    return fetch("http://localhost:3030/booking/"+id,{
             method:'GET',
             headers:{
                 "Authorization":localStorage.getItem('feathers-jwt')
             }
         }).then((r)=>{
-                return booking.put(id);
+                return booking.patch(id, option);
         })
 }
+
+export const deleteSingleBooking = (id, option) =>{
+    return fetch("http://localhost:3030/booking/"+id,{
+            method:'GET',
+            headers:{
+                "Authorization":localStorage.getItem('feathers-jwt')
+            }
+        }).then((r)=>{
+                return booking.remove(id, option);
+        })
+}
+

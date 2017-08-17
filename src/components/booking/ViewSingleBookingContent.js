@@ -2,7 +2,7 @@ import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import {Header,Button , Table} from 'semantic-ui-react';
 
-import {getSingleBooking} from './../../api/Booking';
+import {getSingleBooking } from './../../api/Booking';
 
 class ViewSingleBookingContent extends Component{
     constructor(props){
@@ -14,14 +14,15 @@ class ViewSingleBookingContent extends Component{
             }
         }
 
-
         this.setBookingSingleData = this.setBookingSingleData.bind(this);
         
     }
 
+    
+
    setBookingSingleData(){
 
-    return getSingleBooking(this.state.data.id).
+    return getSingleBooking(window.location.search.substr(4)).
                 then((data)=>{
                     const singleData = data;
                     return this.setState({
