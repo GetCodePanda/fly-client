@@ -13,13 +13,14 @@ class ViewSingleCustomerContent extends Component{
                 singleCustomer:[]
             }
         }
-
+        
 
         this.setCustomerSingleData = this.setCustomerSingleData.bind(this);
         
     }
 
    setCustomerSingleData(){
+
 
     return getSingleCustomer(this.state.data.id).
                 then((data)=>{
@@ -39,6 +40,7 @@ class ViewSingleCustomerContent extends Component{
     }
 
     render(){
+
         return(
             <div className="content-wrapper">
                 <div className="content-header">
