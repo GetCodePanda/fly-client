@@ -33,3 +33,15 @@ export const getVehicle = (option) => {
                 return vehicle.find(option)
         })
 }
+
+export const getSingleVehicle = (id)=>{
+  return fetch("http://localhost:3030/vehicle",{
+          method:'GET',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              console.log(r);
+              return vehicle.get(id);
+      })
+}

@@ -7,8 +7,8 @@ import {getSingleBooking , editSingleBooking , deleteSingleBooking} from './../.
 
 class EditBookingContent extends  Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
                 pickUpLocation:"",
                 dropLocation:"",
@@ -34,16 +34,12 @@ class EditBookingContent extends  Component{
         this.onInputChange = this.onInputChange.bind(this);
     }
 
-    getOldBookingData(){
-        getSingleBooking(window.location.search.substr(4))
+    getOldBookingData(id){
+        getSingleBooking(id)
         .then((res)=>{
-            console.log(res)
-
-
+            console.log(res);
             const fromDate = res.fromDate;
             const toDate = res.toDate;
-            
-
             return this.setState({
                 pickUpLocation:res.pickUpLocation,
                 dropLocation:res.dropLocation,
@@ -65,29 +61,29 @@ class EditBookingContent extends  Component{
             });
         })
     }
-
+    
     updateBooking(e){
         e.preventDefault();
-        return editSingleBooking(window.location.search.substr(4),this.state).then(res =>{
+        return editSingleBooking(this.props.id,this.state).then(res =>{
             console.log(res);
         })
     }
-
+    
     deleteBooking(e){
         e.preventDefault();
-        
-        deleteSingleBooking(window.location.search.substr(4)).then(
+        deleteSingleBooking(this.props.id).then(
             res => console.log(res)
         )
     }
-
+    
     onInputChange(e){
         this.setState({
-                [e.target.name]:e.target.value
+            [e.target.name]:e.target.value
         });
     }
     componentDidMount(){
-        this.getOldBookingData();
+        console.log(this.props.id)
+        return this.getOldBookingData(this.props.id);
     }
 
 

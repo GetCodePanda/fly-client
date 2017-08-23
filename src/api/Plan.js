@@ -32,3 +32,15 @@ export const getPlan = (option) => {
                 return plan.find(option)
         })
 }
+
+export const getSinglePlan = (id)=>{
+  return fetch("http://localhost:3030/plan",{
+          method:'GET',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              console.log(r);
+              return plan.get(id);
+      })
+}

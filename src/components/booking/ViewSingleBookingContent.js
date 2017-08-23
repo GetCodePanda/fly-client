@@ -1,8 +1,8 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Header,Button , Table} from 'semantic-ui-react';
+import {Header,Button,Table} from 'semantic-ui-react';
 
-import {getSingleBooking } from './../../api/Booking';
+import {getSingleBooking} from './../../api/Booking';
 
 class ViewSingleBookingContent extends Component{
     constructor(props){
@@ -13,28 +13,25 @@ class ViewSingleBookingContent extends Component{
                 singleBooking:[]
             }
         }
-
         this.setBookingSingleData = this.setBookingSingleData.bind(this);
-        
     }
-
-    
 
    setBookingSingleData(){
 
-    return getSingleBooking(window.location.search.substr(4)).
+    return getSingleBooking(this.props.id).
                 then((data)=>{
+                    const bookingId = this.props.id;
+                    console.log(this.props.id);
                     const singleData = data;
                     return this.setState({
                         data:{
-                            id:window.location.search.substr(4),
+                            id:bookingId,
                             singleBooking:singleData
                         }
                     });
                 })    
           
    }
-
 
     componentWillMount(){
         this.setBookingSingleData();
@@ -50,7 +47,7 @@ class ViewSingleBookingContent extends Component{
                     <NavLink to="/user/booking">
                         <Button content='Back' color='purple' icon='reply' floated="right" labelPosition='left'/>
                     </NavLink>
-                    <NavLink to={`/user/booking/edit/q?id=${this.state.data.id}`}>
+                    <NavLink to={`/user/booking/edit/${this.state.data.id}`}>
                         <Button content='Edit' color='purple' icon='write' floated="right" labelPosition='left'/>
                     </NavLink>
                     <NavLink to="/user/booking">
@@ -60,7 +57,6 @@ class ViewSingleBookingContent extends Component{
                     <hr/>
                 </div>
                 <br/>
-
                 <div className="sub-content-wrapper">
                     <Table color="purple" celled>
                         <Table.Header>
@@ -148,7 +144,6 @@ class ViewSingleBookingContent extends Component{
                                 <Table.Cell>Booking Status</Table.Cell>
                                 <Table.Cell>{this.state.data.singleBooking.bookingStatus}</Table.Cell>
                             </Table.Row>
-
                         </Table.Body>
                     </Table>
                 </div>
@@ -156,5 +151,4 @@ class ViewSingleBookingContent extends Component{
         )
     }
 }
-
 export default ViewSingleBookingContent;

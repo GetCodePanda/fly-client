@@ -28,8 +28,8 @@ const TaxCard = (props) =>{
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <NavLink to={"/user/Tax/view/q?id="+t.id}>
-                             <Button icon='archive' color='purple' content='View More' labelPosition='left' />
+                            <NavLink to={"/user/tax/view/"+t.id}>
+                               <Button icon='archive' color='purple' content='View More' labelPosition='left' />
                             </NavLink>
                         </div>
                     </Card.Content>

@@ -32,3 +32,16 @@ export const getTax = (option) => {
                 return tax.find(option)
         })
 }
+
+
+export const getSingleTax = (id)=>{
+  return fetch("http://localhost:3030/tax",{
+          method:'GET',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              console.log(r);
+              return tax.get(id);
+      })
+}

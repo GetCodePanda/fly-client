@@ -32,3 +32,15 @@ export const getDriver = (option)=>{
                 return driver.find(option)
         })
 }
+
+export const getSingleDriver = (id)=>{
+  return fetch("http://localhost:3030/driver/",{
+          method:'GET',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              console.log(r);
+              return driver.get(id);
+      })
+}

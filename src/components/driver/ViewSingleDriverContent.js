@@ -1,37 +1,38 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Header,Button , Table} from 'semantic-ui-react';
+import {Header,Button,Table} from 'semantic-ui-react';
 
-import {getSingleCustomer} from './../../api/Customer';
+import {getSingleDriver} from './../../api/Driver';
 
-class ViewSingleCustomerContent extends Component{
+class ViewSingleDriverContent extends Component{
     constructor(props){
         super(props);
         this.state={
             data:{
                 id:'',
-                customer:[]
+                driver:[]
             }
         }
-        this.setCustomerSingleData = this.setCustomerSingleData.bind(this);  
+        this.setDriverSingleData = this.setDriverSingleData.bind(this);
     }
 
-   setCustomerSingleData(id){
-    return getSingleCustomer(id).
+   setDriverSingleData(id){
+
+    return getSingleDriver(id).
                 then((data)=>{
-                    const customer = data;
+                    
+                    const driver = data;
                     return this.setState({
-                        id,
-                        data:{customer}
+                        data:{
+                            id,
+                            driver
+                        }
                     });
-                })    
-          
+                })
    }
 
-
     componentWillMount(){
-
-        this.setCustomerSingleData(this.props.id);
+        this.setDriverSingleData(this.props.id);
     }
 
     render(){
@@ -39,22 +40,21 @@ class ViewSingleCustomerContent extends Component{
             <div className="content-wrapper">
                 <div className="content-header">
                     <Header as='span'>
-                        View Customer
+                        View Driver
                     </Header>
-                    <NavLink to="/user/customer">
+                    <NavLink to="/user/driver">
                         <Button content='Back' color='purple' icon='reply' floated="right" labelPosition='left'/>
                     </NavLink>
-                    <NavLink to={`/user/customer/edit/${this.props.id}`}>
+                    <NavLink to={`/user/driver/edit/${this.state.data.id}`}>
                         <Button content='Edit' color='purple' icon='write' floated="right" labelPosition='left'/>
                     </NavLink>
-                    <NavLink to="/user/customer">
+                    <NavLink to="/user/driver">
                         <Button content='Delete' color='purple' icon='trash' floated="right" labelPosition='left'/>
                     </NavLink>
                     <br/><br/>
                     <hr/>
                 </div>
                 <br/>
-
                 <div className="sub-content-wrapper">
                     <Table color="purple" celled>
                         <Table.Header>
@@ -66,21 +66,21 @@ class ViewSingleCustomerContent extends Component{
 
                         <Table.Body>
                             <Table.Row>
-                                {console.log(this.state.data.customer)}
-                                <Table.Cell>Customer Name</Table.Cell>
-                                <Table.Cell>{this.state.data.customer.name}</Table.Cell>
+                                <Table.Cell>Driver Name</Table.Cell>
+                                <Table.Cell>{this.state.data.driver.name}</Table.Cell>
                             </Table.Row>
                             <Table.Row>
-                                <Table.Cell>Customer Email</Table.Cell>
-                                <Table.Cell>{this.state.data.customer.email}</Table.Cell>
+                                {console.log(this.state.data)}
+                                <Table.Cell>Driver Mobile Number</Table.Cell>
+                                <Table.Cell>{this.state.data.driver.mobileNumber}</Table.Cell>
                             </Table.Row>
                             <Table.Row>
-                                <Table.Cell>Customer Address</Table.Cell>
+                                <Table.Cell>Driver Address</Table.Cell>
                                 <Table.Cell>
-                                    {this.state.data.customer.address}, {this.state.data.customer.city}-{this.state.data.customer.zipCode},{this.state.data.customer.state}.{this.state.data.customer.country}.
+                                    {this.state.data.driver.address},{this.state.data.driver.city}-{this.state.data.driver.zipCode},{this.state.data.driver.state}.{this.state.data.driver.country}.
                                 </Table.Cell>
                             </Table.Row>
-                            
+            
                         </Table.Body>
                     </Table>
                 </div>
@@ -88,5 +88,4 @@ class ViewSingleCustomerContent extends Component{
         )
     }
 }
-
-export default ViewSingleCustomerContent;
+export default ViewSingleDriverContent;

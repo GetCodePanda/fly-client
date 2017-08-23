@@ -5,9 +5,9 @@ import Layout from '../../../components/Layout';
 import ViewSingleBookingContent from 
 '../../../components/booking/ViewSingleBookingContent';
 
-const ViewSingleBooking = () => (
+const ViewSingleBooking = (props) => (
     <Layout>
-        <ViewSingleBookingContent/>
+        <ViewSingleBookingContent id={props.id}/>
     </Layout>
 )
 

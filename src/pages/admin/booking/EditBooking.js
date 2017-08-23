@@ -5,9 +5,10 @@ import Layout from '../../../components/Layout';
 import EditBookingContent from 
 '../../../components/booking/EditBookingContent';
 
-const EditBooking = () => (
+
+const EditBooking = (props) => (
     <Layout>
-        <EditBookingContent/>
+        <EditBookingContent id={props.id}/>
     </Layout>
 )
 

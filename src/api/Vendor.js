@@ -33,3 +33,16 @@ export const getVendor = (option) => {
                 return vendor.find(option)
         })
 }
+
+
+export const getSingleVendor = (id)=>{
+  return fetch("http://localhost:3030/vendor",{
+          method:'GET',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              console.log(r);
+              return vendor.get(id);
+      })
+}

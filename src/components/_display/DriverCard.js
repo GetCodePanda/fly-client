@@ -26,7 +26,7 @@ const DriverCard = (props) =>{
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <NavLink to={"/user/driver/view/q?id="+d.id}>
+                            <NavLink to={"/user/driver/view/"+d.id}>
                              <Button icon='archive' color='purple' content='View More' labelPosition='left' />
                             </NavLink>
                             

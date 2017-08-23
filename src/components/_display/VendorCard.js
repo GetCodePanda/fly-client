@@ -28,7 +28,7 @@ const VendorCard = (props) =>{
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <NavLink to={"/user/vendor/view/q?id="+v.id}>
+                            <NavLink to={"/user/vendor/view/"+v.id}>
                              <Button icon='archive' color='purple' content='View More' labelPosition='left' />
                             </NavLink>
                             

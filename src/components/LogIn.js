@@ -53,7 +53,8 @@ class LogIn extends Component {
                     <label>Password</label>
                     <input 
                         name='password'
-                        placeholder='*********' 
+                        placeholder='*********'
+                        type='password'
                         onChange={this.onInputChange}
                         value={this.state.password}
                     />

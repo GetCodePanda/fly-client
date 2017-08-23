@@ -28,7 +28,7 @@ const CustomerCard = (props) =>{
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <NavLink to={"/user/customer/view/q?id="+c.id}>
+                            <NavLink to={"/user/customer/view/"+c.id}>
                              <Button icon='archive' color='purple' content='View More' labelPosition='left' />
                             </NavLink>
                             

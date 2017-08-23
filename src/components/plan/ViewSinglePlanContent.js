@@ -1,37 +1,37 @@
 import React , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Header,Button , Table} from 'semantic-ui-react';
+import {Header,Button,Table} from 'semantic-ui-react';
 
-import {getSingleCustomer} from './../../api/Customer';
+import {getSinglePlan} from './../../api/Plan';
 
-class ViewSingleCustomerContent extends Component{
+class ViewSinglePlanContent extends Component{
     constructor(props){
         super(props);
         this.state={
             data:{
                 id:'',
-                customer:[]
+                plan:[]
             }
         }
-        this.setCustomerSingleData = this.setCustomerSingleData.bind(this);  
+        this.setPlanSingleData = this.setPlanSingleData.bind(this);
     }
 
-   setCustomerSingleData(id){
-    return getSingleCustomer(id).
+   setPlanSingleData(id){
+    return getSinglePlan(id).
                 then((data)=>{
-                    const customer = data;
+                    
+                    const plan = data;
                     return this.setState({
-                        id,
-                        data:{customer}
+                        data:{
+                            id,
+                            plan
+                        }
                     });
-                })    
-          
+                })
    }
 
-
     componentWillMount(){
-
-        this.setCustomerSingleData(this.props.id);
+        this.setPlanSingleData(this.props.id);
     }
 
     render(){
@@ -39,22 +39,21 @@ class ViewSingleCustomerContent extends Component{
             <div className="content-wrapper">
                 <div className="content-header">
                     <Header as='span'>
-                        View Customer
+                        View Plan
                     </Header>
-                    <NavLink to="/user/customer">
+                    <NavLink to="/user/plan">
                         <Button content='Back' color='purple' icon='reply' floated="right" labelPosition='left'/>
                     </NavLink>
-                    <NavLink to={`/user/customer/edit/${this.props.id}`}>
+                    <NavLink to={`/user/plan/edit/${this.state.data.id}`}>
                         <Button content='Edit' color='purple' icon='write' floated="right" labelPosition='left'/>
                     </NavLink>
-                    <NavLink to="/user/customer">
+                    <NavLink to="/user/plan">
                         <Button content='Delete' color='purple' icon='trash' floated="right" labelPosition='left'/>
                     </NavLink>
                     <br/><br/>
                     <hr/>
                 </div>
                 <br/>
-
                 <div className="sub-content-wrapper">
                     <Table color="purple" celled>
                         <Table.Header>
@@ -65,22 +64,31 @@ class ViewSingleCustomerContent extends Component{
                         </Table.Header>
 
                         <Table.Body>
+                            {console.log(this.state.data.plan)}
                             <Table.Row>
-                                {console.log(this.state.data.customer)}
-                                <Table.Cell>Customer Name</Table.Cell>
-                                <Table.Cell>{this.state.data.customer.name}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Customer Email</Table.Cell>
-                                <Table.Cell>{this.state.data.customer.email}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Customer Address</Table.Cell>
+                                <Table.Cell>Plan Company Name</Table.Cell>
                                 <Table.Cell>
-                                    {this.state.data.customer.address}, {this.state.data.customer.city}-{this.state.data.customer.zipCode},{this.state.data.customer.state}.{this.state.data.customer.country}.
+                                    {this.state.data.plan.planName}
                                 </Table.Cell>
                             </Table.Row>
-                            
+                            <Table.Row>
+                                <Table.Cell>Plan Kms</Table.Cell>
+                                <Table.Cell>
+                                {this.state.data.plan.planKm}
+                                </Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell>Plan Charge</Table.Cell>
+                                <Table.Cell>
+                                {this.state.data.plan.planCharge}
+                                </Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell>Plan Status</Table.Cell>
+                                <Table.Cell>
+                                {this.state.data.plan.status}
+                                </Table.Cell>
+                            </Table.Row>
                         </Table.Body>
                     </Table>
                 </div>
@@ -88,5 +96,4 @@ class ViewSingleCustomerContent extends Component{
         )
     }
 }
-
-export default ViewSingleCustomerContent;
+export default ViewSinglePlanContent;

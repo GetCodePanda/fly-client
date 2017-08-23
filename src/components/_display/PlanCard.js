@@ -25,7 +25,7 @@ const PlanCard = (props) =>{
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <NavLink to={"/user/plan/view/q?id="+v.id}>
+                            <NavLink to={"/user/plan/view/"+v.id}>
                              <Button icon='archive' color='purple' content='View More' labelPosition='left' />
                             </NavLink>
                             
