@@ -45,3 +45,25 @@ export const getSingleTax = (id)=>{
               return tax.get(id);
       })
 }
+
+export const editSingleTax = (id, option) =>{
+  return fetch("http://localhost:3030/tax/"+id,{
+          method:'PUT',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return tax.patch(id, option);
+      })
+}
+
+export const deleteSingleTax = (id, option) =>{
+  return fetch("http://localhost:3030/tax/"+id,{
+          method:'DELETE',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return tax.remove(id, option);
+      })
+}

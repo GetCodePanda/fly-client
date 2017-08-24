@@ -48,7 +48,7 @@ export const getSingleBooking = (id)=>{
 
 export const editSingleBooking = (id, option) =>{
     return fetch("http://localhost:3030/booking/"+id,{
-            method:'GET',
+            method:'PUT',
             headers:{
                 "Authorization":localStorage.getItem('feathers-jwt')
             }
@@ -59,7 +59,7 @@ export const editSingleBooking = (id, option) =>{
 
 export const deleteSingleBooking = (id, option) =>{
     return fetch("http://localhost:3030/booking/"+id,{
-            method:'GET',
+            method:'DELETE',
             headers:{
                 "Authorization":localStorage.getItem('feathers-jwt')
             }

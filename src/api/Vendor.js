@@ -46,3 +46,25 @@ export const getSingleVendor = (id)=>{
               return vendor.get(id);
       })
 }
+
+export const editSingleVendor = (id, option) =>{
+  return fetch("http://localhost:3030/vendor/"+id,{
+          method:'PUT',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return vendor.patch(id, option);
+      })
+}
+
+export const deleteSingleVendor = (id, option) =>{
+  return fetch("http://localhost:3030/vendor/"+id,{
+          method:'DELETE',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return vendor.remove(id, option);
+      })
+}

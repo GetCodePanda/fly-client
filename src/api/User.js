@@ -29,4 +29,24 @@ export const getUsers = (option) => {
 }
 
 
-
+export const editSingleUsers = (id, option) =>{
+    return fetch("http://localhost:3030/users/"+id,{
+            method:'PUT',
+            headers:{
+                "Authorization":localStorage.getItem('feathers-jwt')
+            }
+        }).then((r)=>{
+                return users.patch(id, option);
+        })
+  }
+  
+  export const deleteSingleUsers = (id, option) =>{
+    return fetch("http://localhost:3030/users/"+id,{
+            method:'DELETE',
+            headers:{
+                "Authorization":localStorage.getItem('feathers-jwt')
+            }
+        }).then((r)=>{
+                return users.remove(id, option);
+        })
+  }

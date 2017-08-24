@@ -2,92 +2,119 @@ import React  , {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import {Header, Button , Form , Container} from 'semantic-ui-react';
 
-import {createNewVehicle} from './../../api/Vehicle';
+import {getSingleVehicle , editSingleVehicle , deleteSingleVehicle} from './../../api/Vehicle';
 
-class CreateVehicle extends  Component{
-    constructor(){
-        super();
+
+class EditVehicleContent extends  Component{
+
+    constructor(props){
+        super(props);
         this.state = {
-                name:"",
-                type:"",
-                model:"",
-                regNo:"",
-                fuleType:"",
-                color:"",
-                size:"",
-                engineNo:"",
-                chasisNo:"",
-                batterySNo:"",
-                seatCapacity:"",
-                rtoTaxFrom:"",
-                rtoTaxTo:"",
-                insuranceDateFrom:"",
-                insuranceDateTo :"",
-                fitnessDateFrom:"",
-                fitnessDateTo:"",
-                authDateFrom:"",
-                authDateTo:"",
-                permitNo:"",
-                fitnessCertificateNo:""
+            name:"",
+            type:"",
+            model:"",
+            regNo:"",
+            fuleType:"",
+            color:"",
+            size:"",
+            engineNo:"",
+            chasisNo:"",
+            batterySNo:"",
+            seatCapacity:"",
+            rtoTaxFrom:"",
+            rtoTaxTo:"",
+            insuranceDateFrom:"",
+            insuranceDateTo :"",
+            fitnessDateFrom:"",
+            fitnessDateTo:"",
+            authDateFrom:"",
+            authDateTo:"",
+            permitNo:"",
+            fitnessCertificateNo:""
         }
-        this.onInputChange = this.onInputChange.bind(this)
-        this.createVehicle = this.createVehicle.bind(this)
+        
+        this.getOldVehicleData = this.getOldVehicleData.bind(this);
+        this.updateVehicle = this.updateVehicle.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
     }
 
+    getOldVehicleData(id){
+        return getSingleVehicle(id)
+        .then((res)=>{
+            console.log(res);
+            return this.setState({
+                name:res.name,
+                type:res.type,
+                model:res.model,
+                regNo:res.regNo,
+                fuleType:res.fuleType,
+                color:res.color,
+                size:res.size,
+                engineNo:res.engineNo,
+                chasisNo:res.chasisNo,
+                batterySNo:res.batterySNo,
+                seatCapacity:res.seatCapacity,
+                rtoTaxFrom:res.rtoTaxFrom,
+                rtoTaxTo:res.rtoTaxTo,
+                insuranceDateFrom:res.insuranceDateFrom,
+                insuranceDateTo :res.insuranceDateTo ,
+                fitnessDateFrom:res.fitnessDateFrom,
+                fitnessDateTo:res.fitnessDateTo,
+                authDateFrom:res.authDateFrom,
+                authDateTo:res.authDateTo,
+                permitNo:res.permitNo,
+                fitnessCertificateNo:res.fitnessCertificateNo
+            });
+        })
+    }
+    
+    updateVehicle(e){
+        e.preventDefault();
+        return editSingleVehicle(this.props.id,this.state).then(res =>{
+            alert("updated successfully");
+            console.log(res);
+        })
+    }
+    
+    deleteVehicle(e){
+        e.preventDefault();
+        deleteSingleVehicle(this.props.id).then(res => {
+            alert("deleteded successfully");
+            console.log(res)
+        })
+    }
+    
     onInputChange(e){
         this.setState({
-                [e.target.name]:e.target.value
+            [e.target.name]:e.target.value
         });
+    }
+    componentDidMount(){
+        console.log(this.props.id)
+        return this.getOldVehicleData(this.props.id);
     }
 
-    createVehicle(e){
-        e.preventDefault();
-        createNewVehicle(this.state).then(res=>{
-            alert("user created successfully");
-            this.setState({
-                name:'',
-                type:"",
-                model:"",
-                regNo:"",
-                fuleType:"",
-                color:"",
-                size:"",
-                engineNo:"",
-                chasisNo:"",
-                batterySNo:"",
-                seatCapacity:"",
-                rtoTaxFrom:"",
-                rtoTaxTo:"",
-                insuranceDateFrom:"",
-                insuranceDateTo :"",
-                fitnessDateFrom:"",
-                fitnessDateTo:"",
-                authDateFrom:"",
-                authDateTo:"",
-                permitNo:"",
-                fitnessCertificateNo:""
-            });
-            console.log(res);
-        });
-        console.log(this.state)
-    }
 
     render(){
         return(
              <div className="content-wrapper">
                 <div className="content-header">
                     <Header as='span'>
-                        Create New Car
+                        Edit Vehicle
                     </Header>
                     <NavLink to="/user/vehicle">
                         <Button content='Back' color='purple' icon='reply' floated="right" labelPosition='left'/>
+                    </NavLink>
+                    <NavLink to="/user/vehicle">
+                        <Button content='Delete' color='purple' icon='trash outline' onClick={this.deleteVehicle.bind(this)} floated="right" labelPosition='left'/>
                     </NavLink>
                     <br/><br/>
                     <hr/>
                 </div>
                 <br/>
+
                 <Container>
-                    <Form onSubmit={this.createVehicle}>
+                    <Form onSubmit={this.updateVehicle} id="updateVehicle">
                         <Form.Group widths='equal'>
                             <Form.Input 
                                 label='Car Name' 
@@ -168,7 +195,6 @@ class CreateVehicle extends  Component{
                                 name='chasisNo'
                                 onChange={this.onInputChange}
                                 value={this.state.chasisNo}
-
                             />
                             <Form.Input 
                                 label='Car Battery SNo' 
@@ -184,7 +210,6 @@ class CreateVehicle extends  Component{
                                 name='seatCapacity'
                                 onChange={this.onInputChange}
                                 value={this.state.seatCapacity}
-
                             />
                         </Form.Group>
                         
@@ -238,7 +263,7 @@ class CreateVehicle extends  Component{
                                 value={this.state.fitnessCertificateNo}
                             />
                         </Form.Group> 
-                        
+
                         <Form.Group widths='equal'>
                             <Form.Input 
                                 label='Car Fitness Date From' 
@@ -248,11 +273,11 @@ class CreateVehicle extends  Component{
                                 value={this.state.fitnessDateFrom}
                             />
                             <Form.Input 
-                                label='Car Fitness Date     ' 
+                                label='Car Fitness Date' 
                                 placeholder='eg. 2019/4/4' 
-                                name='fitnessDate   '
+                                name='fitnessDate'
                                 onChange={this.onInputChange}
-                                value={this.state.fitnessDate   }
+                                value={this.state.fitnessDate}
                             />
                             <Form.Input 
                                 label='Car RTO Tax From' 
@@ -272,8 +297,8 @@ class CreateVehicle extends  Component{
 
                         <Button 
                             color="purple" 
-                            content='Create new Car' 
-                            icon='plus' 
+                            content='Update' 
+                            icon='upload' 
                             labelPosition='left'
                             type='submit'
                         >
@@ -286,4 +311,4 @@ class CreateVehicle extends  Component{
 }
 
 
-export default CreateVehicle;
+export default EditVehicleContent;

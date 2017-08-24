@@ -45,3 +45,25 @@ export const getSingleVehicle = (id)=>{
               return vehicle.get(id);
       })
 }
+
+export const editSingleVehicle = (id, option) =>{
+  return fetch("http://localhost:3030/vehicle/"+id,{
+          method:'PUT',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return vehicle.patch(id, option);
+      })
+}
+
+export const deleteSingleVehicle = (id, option) =>{
+  return fetch("http://localhost:3030/vehicle/"+id,{
+          method:'DELETE',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return vehicle.remove(id, option);
+      })
+}

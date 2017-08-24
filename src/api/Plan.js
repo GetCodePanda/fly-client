@@ -44,3 +44,26 @@ export const getSinglePlan = (id)=>{
               return plan.get(id);
       })
 }
+
+
+export const editSinglePlan = (id, option) =>{
+  return fetch("http://localhost:3030/plans/"+id,{
+          method:'PUT',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return plan.patch(id, option);
+      })
+}
+
+export const deleteSinglePlan = (id, option) =>{
+  return fetch("http://localhost:3030/plans/"+id,{
+          method:'DELETE',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return plan.remove(id, option);
+      })
+}

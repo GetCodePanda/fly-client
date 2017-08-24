@@ -44,3 +44,25 @@ export const getSingleDriver = (id)=>{
               return driver.get(id);
       })
 }
+
+export const editSingleDriver = (id, option) =>{
+  return fetch("http://localhost:3030/driver/"+id,{
+          method:'PUT',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return driver.patch(id, option);
+      })
+}
+
+export const deleteSingleDriver = (id, option) =>{
+  return fetch("http://localhost:3030/driver/"+id,{
+          method:'DELETE',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return driver.remove(id, option);
+      })
+}

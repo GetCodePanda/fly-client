@@ -65,15 +65,17 @@ class EditBookingContent extends  Component{
     updateBooking(e){
         e.preventDefault();
         return editSingleBooking(this.props.id,this.state).then(res =>{
+            alert("updated successfully");
             console.log(res);
         })
     }
     
     deleteBooking(e){
         e.preventDefault();
-        deleteSingleBooking(this.props.id).then(
-            res => console.log(res)
-        )
+        deleteSingleBooking(this.props.id).then(res => {
+            alert("deleted successfully");
+            console.log(res)
+        })
     }
     
     onInputChange(e){

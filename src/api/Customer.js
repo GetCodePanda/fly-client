@@ -35,7 +35,7 @@ export const getCustomer = (option)=>{
 }
 
 export const getSingleCustomer = (id)=>{
-  return fetch("http://localhost:3030/booking/",{
+  return fetch("http://localhost:3030/customers/",{
           method:'GET',
           headers:{
               "Authorization":localStorage.getItem('feathers-jwt')
@@ -43,5 +43,27 @@ export const getSingleCustomer = (id)=>{
       }).then((r)=>{
               console.log(r);
               return customer.get(id);
+      })
+}
+
+export const editSingleCustomer = (id, option) =>{
+  return fetch("http://localhost:3030/customers/"+id,{
+          method:'PUT',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return customer.patch(id, option);
+      })
+}
+
+export const deleteSingleCustomer = (id, option) =>{
+  return fetch("http://localhost:3030/customers/"+id,{
+          method:'DELETE',
+          headers:{
+              "Authorization":localStorage.getItem('feathers-jwt')
+          }
+      }).then((r)=>{
+              return customer.remove(id, option);
       })
 }
